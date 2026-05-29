@@ -4,6 +4,13 @@
 
 ---
 
+## Auteurs
+
+- **Amira Rodriguez Cilleruelo** — M1 Sociologie Contemporaine, Sorbonne Université
+- **Bastien Gautron** — M1 Sociologie Contemporaine, Sorbonne Université
+
+---
+
 ## Question de recherche
 
 > **« Quels sont les thèmes dominants dans le discours MGTOW sur Reddit, et quel registre émotionnel les accompagne ? »**
@@ -14,7 +21,7 @@
 
 Ce projet analyse les posts du subreddit **MGTOW** (*Men Going Their Own Way*) extraits de la base `sampleReddit.csv` (2019). Il mobilise les méthodes enseignées dans le cours de Floriana Gargiulo (*Python4SHS*), ici reproduites en R avec les packages équivalents.
 
-MGTOW est une communauté en ligne appartenant à la « manosphère », caractérisée par un discours de désengagement masculin des relations hétérosexuelles (Ribeiro et al., 2021).
+MGTOW est une communauté en ligne appartenant à la « manosphère », caractérisée par un discours de désengagement masculin des relations hétérosexuelles. Elle a été bannie de Reddit en 2021 pour contenus haineux, après avoir compté plusieurs centaines de milliers de membres à son apogée.
 
 ---
 
@@ -24,6 +31,7 @@ MGTOW est une communauté en ligne appartenant à la « manosphère », caracté
 |---|---|
 | Source | `sampleReddit.csv` — base multi-subreddits |
 | Corpus retenu | Subreddit `MGTOW` uniquement |
+| Volume | 30 606 posts — 7 variables |
 | Période couverte | 2019 (majorité des posts) |
 | Variable texte | `text_post` |
 | Variable temporelle | `date_post` (timestamp Unix → converti en date) |
@@ -50,6 +58,20 @@ Chaque méthode R est mise en correspondance avec son équivalent du cours Pytho
 
 ---
 
+## Notes méthodologiques
+
+### Modification de la Figure 5 — suite à l'évaluation
+
+La visualisation *Longueur des posts × Intensité émotionnelle* a été révisée après retour du professeur. La version initiale utilisait une courbe **LOESS** (régression locale non-paramétrique). Elle a été remplacée par une **régression sur axe logarithmique** (`scale_x_log10()`) pour mieux rendre compte de la distribution asymétrique des longueurs de posts, dont la majorité est courte avec quelques valeurs très élevées.
+
+La version LOESS reste disponible dans le script sous le nom `p_longueur_loess`.
+
+### Limite commune aux trois lexiques de sentiment
+
+Les lexiques AFINN, Bing et NRC partagent une limite fondamentale : ils ne comprennent pas le contexte. Un mot comme "love" est toujours codé positivement, quelle que soit la phrase dans laquelle il apparaît. Cette contrainte est particulièrement sensible dans un corpus idéologique comme MGTOW, où des termes codés positivement ("free", "trust", "love") peuvent exprimer des logiques de retrait et d'opposition. Les résultats doivent donc être lus avec précaution et gagneraient à être complétés par une analyse qualitative.
+
+---
+
 ## Structure du dépôt
 
 ```
@@ -60,7 +82,10 @@ mgtow-reddit-analyse/
 ├── scripts/
 │   └── script_final_poster_algo.R        ← Script principal commenté
 │
-├── outputs/                               ← Graphiques produits par le script
+├── poster/
+│   └── discours_MGTOW_sur_Reddit.png     ← Poster final présenté en cours
+│
+├── outputs/                              ← Graphiques produits par le script
 │   ├── fig_frequence_mots.png
 │   ├── fig_wordcloud_mgtow.png
 │   ├── fig_sentiment_mots.png
@@ -74,7 +99,7 @@ mgtow-reddit-analyse/
 │   └── fig_longueur_sentiment_loess.png
 │
 └── fiches/
-    └── fiche_methodes.md                  ← Description détaillée des méthodes
+    └── fiche_methodes.md                 ← Description détaillée des méthodes
 ```
 
 ---
@@ -111,31 +136,37 @@ chemin_fichier <- "C:/Sorbonne/Méthodes algorithmiques S2/sampleReddit.csv"
 
 4. Exécuter `scripts/script_final_poster_algo.R` dans RStudio
 
+Les graphiques seront automatiquement sauvegardés dans le dossier `outputs/`.
+
 ---
 
 ## Visualisations produites
 
-1. **Barplot des 20 mots les plus fréquents** — vocabulaire dominant du corpus
-2. **Nuage de mots** — aperçu visuel du lexique MGTOW
-3. **Mots positifs vs négatifs** (lexique Bing) — tonalité lexicale
-4. **Distribution des scores de sentiment** (AFINN) — profil global du corpus
-5. **Profil émotionnel** (NRC) — 8 émotions de base
-6. **Évolution hebdomadaire du sentiment** (2019) — dynamique temporelle
-7. **Contexte lexical des mots-clés** (*women*, *love*, *marriage*) — analyse KWIC
-8. **Contexte lexical sans auto-occurrences** — version nettoyée de l'analyse KWIC
-9. **Longueur des posts × intensité émotionnelle** — régression linéaire par tonalité
-10. **Longueur des posts × intensité émotionnelle** — valeurs extrêmes exclues (top 1%)
-11. **Longueur des posts × intensité émotionnelle** — courbe LOESS
+| # | Fichier | Description |
+|---|---|---|
+| 1 | `fig_frequence_mots.png` | Barplot des 20 mots les plus fréquents |
+| 2 | `fig_wordcloud_mgtow.png` | Nuage de mots du corpus |
+| 3 | `fig_sentiment_mots.png` | Mots positifs vs négatifs (Bing) |
+| 4 | `fig_distribution_sentiment.png` | Distribution des scores AFINN par post |
+| 5 | `fig_profil_emotionnel.png` | Profil des 8 émotions NRC |
+| 6 | `fig_sentiment_hebdomadaire.png` | Évolution hebdomadaire du sentiment (2019) |
+| 7 | `fig_contexte_lexical.png` | Contexte lexical de *women*, *love*, *marriage* |
+| 8 | `fig_contexte_lexical_sans_repet.png` | Idem, sans auto-occurrences du mot-clé |
+| 9 | `fig_longueur_sentiment.png` | Longueur × intensité émotionnelle (version initiale) |
+| 10 | `fig_longueur_sentiment_filtre.png` | Idem, valeurs extrêmes exclues (top 1%) |
+| 11 | `fig_longueur_sentiment_loess.png` | Idem, courbe LOESS (version pré-révision) |
 
 ---
 
 ## Références
 
 - Gargiulo, F. — *Python4SHS*, Notebook 9 : NLP. Sorbonne Université / GEMASS-CNRS. [GitHub](https://github.com/FlorianaGargiulo/Python4SHS)
-- Ribeiro, M. H. et al. (2021). « Auditing Radicalization Pathways on YouTube ». *ACM FAccT*.
-- Mohammad, S. & Turney, P. (2013). « Crowdsourcing a Word-Emotion Association Lexicon ». *Computational Intelligence*.
+- Jones, C., Trott, V., & Wright, S. (2019). Salopes et garçons efféminés : MGTOW et la production de harcèlement misogyne en ligne. *New Media & Society*, 22(10). https://doi.org/10.1177/1461444819887141
+- Wright, S., Trott, V., & Jones, C. (2020). « La chatte n'en vaut pas la peine, mec » : analyse du discours et de la structure du mouvement MGTOW. *Information, Communication & Society*, 908–925. https://doi.org/10.1080/1369118X.2020.1751867
+- Fowler, J. (2025). The masculinities and emotions of men going their own way. *Journal of Right-Wing Studies*, 3(1).
+- Mohammad, S. & Turney, P. (2013). Crowdsourcing a Word-Emotion Association Lexicon. *Computational Intelligence*.
 - Silge, J. & Robinson, D. (2017). *Text Mining with R*. O'Reilly. [tidytextmining.com](https://www.tidytextmining.com/)
 
 ---
 
-*Projet réalisé dans le cadre du M1 Sociologie Contemporaine, Sorbonne Université, 2024-2025.*
+*Projet réalisé par Amira Rodriguez Cilleruelo et Bastien Gautron dans le cadre du M1 Sociologie Contemporaine, Sorbonne Université, 2024-2025.*
