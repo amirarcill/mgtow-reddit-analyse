@@ -57,9 +57,6 @@ mgtow-reddit-analyse/
 │
 ├── README.md                              ← Ce fichier
 │
-├── poster/
-│   └── poster_mgtow_final.png             ← Poster final (Canva export)
-│
 ├── scripts/
 │   └── script_final_poster_algo.R        ← Script principal commenté
 │
@@ -138,12 +135,6 @@ chemin_fichier <- "C:/Sorbonne/Méthodes algorithmiques S2/sampleReddit.csv"
 - Ribeiro, M. H. et al. (2021). « Auditing Radicalization Pathways on YouTube ». *ACM FAccT*.
 - Mohammad, S. & Turney, P. (2013). « Crowdsourcing a Word-Emotion Association Lexicon ». *Computational Intelligence*.
 - Silge, J. & Robinson, D. (2017). *Text Mining with R*. O'Reilly. [tidytextmining.com](https://www.tidytextmining.com/)
-
----
-
-## Poster
-
-![Poster MGTOW](poster/poster_mgtow_final.png)
 
 ---
 
