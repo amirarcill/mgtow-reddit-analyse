@@ -4,10 +4,7 @@
 .Rproj.user/
 *.Rproj
 
-# Données — ne pas versionner
-*.csv
-
-# Fichiers système Windows — NE PAS versionner
+# Fichiers système Windows
 desktop.ini
 Thumbs.db
 $RECYCLE.BIN/

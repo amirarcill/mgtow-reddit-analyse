@@ -36,7 +36,12 @@ MGTOW est une communauté en ligne appartenant à la « manosphère », caracté
 | Variable texte | `text_post` |
 | Variable temporelle | `date_post` (timestamp Unix → converti en date) |
 
-> 📂 Le fichier de données est disponible sur le dépôt public de la professeure : [FlorianaGargiulo/Python4SHS](https://github.com/FlorianaGargiulo/Python4SHS)
+Les deux fichiers de données sont inclus dans le dossier `data/` :
+
+| Fichier | Taille | Description |
+|---|---|---|
+| `sampleReddit.csv` | ~400 Ko | Base complète multi-subreddits (source : [FlorianaGargiulo/Python4SHS](https://github.com/FlorianaGargiulo/Python4SHS)) |
+| `mgtow_corpus.csv` | ~11 Ko | Corpus filtré — subreddit MGTOW uniquement (produit par le script) |
 
 ---
 
@@ -78,6 +83,10 @@ Les lexiques AFINN, Bing et NRC partagent une limite fondamentale : ils ne compr
 mgtow-reddit-analyse/
 │
 ├── README.md                              ← Ce fichier
+│
+├── data/                                  ← Données brutes et corpus filtré
+│   ├── sampleReddit.csv                   ← Base complète multi-subreddits
+│   └── mgtow_corpus.csv                   ← Corpus MGTOW filtré
 │
 ├── scripts/
 │   └── script_final_poster_algo.R        ← Script principal commenté
@@ -126,12 +135,12 @@ install.packages(c(
 ## Reproductibilité
 
 1. Cloner ce dépôt
-2. Placer `sampleReddit.csv` dans le répertoire de votre choix
-3. Modifier la ligne suivante dans le script :
+2. Les données sont incluses dans `data/` — aucun téléchargement supplémentaire requis
+3. Si besoin, modifier le chemin dans le script :
 
 ```r
 chemin_fichier <- "C:/Sorbonne/Méthodes algorithmiques S2/sampleReddit.csv"
-# → remplacer par votre chemin local
+# → remplacer par : file.path(getwd(), "data", "sampleReddit.csv")
 ```
 
 4. Exécuter `scripts/script_final_poster_algo.R` dans RStudio
