@@ -109,7 +109,7 @@ head(df_mgtow)
 
 # 1.5 Sauvegarder la base nettoyée
 write.csv(df_mgtow,
-          "C:/Sorbonne/Méthodes algorithmiques S2/mgtow_corpus.csv",
+          "C:/Sorbonne/Méthodes algorithmiques S2/mgtow-reddit-analyse/outputs/mgtow_corpus.csv",
           row.names = FALSE)
 
 
@@ -257,14 +257,14 @@ p_freq <- freq_mots %>%
 print(p_freq)
 
 # Sauvegarder le graphique pour le poster
-ggsave("C:/Sorbonne/Méthodes algorithmiques S2/fig_frequence_mots.png",
+ggsave("C:/Sorbonne/Méthodes algorithmiques S2/mgtow-reddit-analyse/outputs/fig_frequence_mots.png",
        p_freq, width = 10, height = 6, dpi = 300)
 
 
 
 # 3.2 Nuage de mots (Wordcloud)
 
-png("C:/Sorbonne/Méthodes algorithmiques S2/fig_wordcloud_mgtow.png",
+png("C:/Sorbonne/Méthodes algorithmiques S2/mgtow-reddit-analyse/outputs/fig_wordcloud_mgtow.png",
     width = 800, height = 800)
 wordcloud(
   words = freq_mots$word,
@@ -353,7 +353,7 @@ p_sentiment_mots <- top_mots_sentiment %>%
   )
 
 print(p_sentiment_mots)
-ggsave("C:/Sorbonne/Méthodes algorithmiques S2/fig_sentiment_mots.png",
+ggsave("C:/Sorbonne/Méthodes algorithmiques S2/mgtow-reddit-analyse/outputs/fig_sentiment_mots.png",
        p_sentiment_mots, width = 10, height = 6, dpi = 300)
 
 
@@ -396,7 +396,7 @@ p_distrib_sentiment <- score_par_doc %>%
   theme(plot.title = element_text(face = "bold"))
 
 print(p_distrib_sentiment)
-ggsave("C:/Sorbonne/Méthodes algorithmiques S2/fig_distribution_sentiment.png",
+ggsave("C:/Sorbonne/Méthodes algorithmiques S2/mgtow-reddit-analyse/outputs/fig_distribution_sentiment.png",
        p_distrib_sentiment, width = 10, height = 6, dpi = 300)
 
 
@@ -437,7 +437,7 @@ p_emotions <- emotions_count %>%
   theme(plot.title = element_text(face = "bold"))
 
 print(p_emotions)
-ggsave("C:/Sorbonne/Méthodes algorithmiques S2/fig_profil_emotionnel.png",
+ggsave("C:/Sorbonne/Méthodes algorithmiques S2/mgtow-reddit-analyse/outputs/fig_profil_emotionnel.png",
        p_emotions, width = 10, height = 6, dpi = 300)
 
 

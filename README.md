@@ -28,7 +28,7 @@ MGTOW est une communauté en ligne appartenant à la « manosphère », caracté
 | Variable texte | `text_post` |
 | Variable temporelle | `date_post` (timestamp Unix → converti en date) |
 
-> ⚠️ Le fichier de données n'est pas inclus dans ce dépôt pour des raisons de droits. Contacter l'équipe pédagogique pour y accéder.
+> 📂 Le fichier de données est disponible sur le dépôt public de la professeure : [FlorianaGargiulo/Python4SHS](https://github.com/FlorianaGargiulo/Python4SHS)
 
 ---
 
@@ -55,22 +55,29 @@ Chaque méthode R est mise en correspondance avec son équivalent du cours Pytho
 ```
 mgtow-reddit-analyse/
 │
-├── README.md                        ← Ce fichier
+├── README.md                              ← Ce fichier
+│
+├── poster/
+│   └── poster_mgtow_final.png             ← Poster final (Canva export)
 │
 ├── scripts/
-│   └── script_final_poster_algo.R   ← Script principal commenté
+│   └── script_final_poster_algo.R        ← Script principal commenté
 │
-├── outputs/                         ← Graphiques produits (non versionnés)
+├── outputs/                               ← Graphiques produits par le script
 │   ├── fig_frequence_mots.png
 │   ├── fig_wordcloud_mgtow.png
 │   ├── fig_sentiment_mots.png
 │   ├── fig_distribution_sentiment.png
 │   ├── fig_profil_emotionnel.png
 │   ├── fig_sentiment_hebdomadaire.png
-│   └── fig_contexte_lexical.png
+│   ├── fig_contexte_lexical.png
+│   ├── fig_contexte_lexical_sans_repet.png
+│   ├── fig_longueur_sentiment.png
+│   ├── fig_longueur_sentiment_filtre.png
+│   └── fig_longueur_sentiment_loess.png
 │
 └── fiches/
-    └── fiche_methodes.md            ← Description détaillée des méthodes
+    └── fiche_methodes.md                  ← Description détaillée des méthodes
 ```
 
 ---
@@ -118,6 +125,10 @@ chemin_fichier <- "C:/Sorbonne/Méthodes algorithmiques S2/sampleReddit.csv"
 5. **Profil émotionnel** (NRC) — 8 émotions de base
 6. **Évolution hebdomadaire du sentiment** (2019) — dynamique temporelle
 7. **Contexte lexical des mots-clés** (*women*, *love*, *marriage*) — analyse KWIC
+8. **Contexte lexical sans auto-occurrences** — version nettoyée de l'analyse KWIC
+9. **Longueur des posts × intensité émotionnelle** — régression linéaire par tonalité
+10. **Longueur des posts × intensité émotionnelle** — valeurs extrêmes exclues (top 1%)
+11. **Longueur des posts × intensité émotionnelle** — courbe LOESS
 
 ---
 
@@ -127,6 +138,12 @@ chemin_fichier <- "C:/Sorbonne/Méthodes algorithmiques S2/sampleReddit.csv"
 - Ribeiro, M. H. et al. (2021). « Auditing Radicalization Pathways on YouTube ». *ACM FAccT*.
 - Mohammad, S. & Turney, P. (2013). « Crowdsourcing a Word-Emotion Association Lexicon ». *Computational Intelligence*.
 - Silge, J. & Robinson, D. (2017). *Text Mining with R*. O'Reilly. [tidytextmining.com](https://www.tidytextmining.com/)
+
+---
+
+## Poster
+
+![Poster MGTOW](poster/poster_mgtow_final.png)
 
 ---
 
