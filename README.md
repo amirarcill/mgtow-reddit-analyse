@@ -169,4 +169,4 @@ Les graphiques seront automatiquement sauvegardés dans le dossier `outputs/`.
 
 ---
 
-*Projet réalisé par Amira Rodriguez Cilleruelo et Bastien Gautron dans le cadre du M1 Sociologie Contemporaine, Sorbonne Université, 2024-2025.*
+*Projet réalisé par Amira Rodriguez Cilleruelo et Bastien Gautron dans le cadre du cours Méthodes Algorithmiques (Semestre 2), M1 Sociologie Contemporaine, Sorbonne Université, 2025-2026.*
