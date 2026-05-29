@@ -1,0 +1,21 @@
+# Fichiers R
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# Données sensibles — NE PAS versionner
+sampleReddit.csv
+mgtow_corpus.csv
+*.csv
+
+# Outputs (graphiques) — optionnel : retirer ces lignes si tu veux les versionner
+# outputs/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers temporaires
+*.tmp
+*.log
