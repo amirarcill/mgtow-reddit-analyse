@@ -43,6 +43,8 @@ Les deux fichiers de données sont inclus dans le dossier `data/` :
 | `sampleReddit.csv` | ~400 Ko | Base complète multi-subreddits (source : [FlorianaGargiulo/Python4SHS](https://github.com/FlorianaGargiulo/Python4SHS)) |
 | `mgtow_corpus.csv` | ~11 Ko | Corpus filtré — subreddit MGTOW uniquement (produit par le script) |
 
+> ⚠️ `sampleReddit.csv` (395 Mo) dépasse la limite de taille GitHub et n'est pas inclus dans ce dépôt. Il est disponible sur le dépôt public de la professeure : [FlorianaGargiulo/Python4SHS](https://github.com/FlorianaGargiulo/Python4SHS). Seul `mgtow_corpus.csv` (corpus déjà filtré sur MGTOW) est inclus dans `data/`.
+
 ---
 
 ## Méthodes mobilisées
