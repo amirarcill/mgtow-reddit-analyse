@@ -559,6 +559,9 @@ p_clean <- top_mots_clean %>%
 # Celà semble suggérer que la figure féminine y est associée, c'est à dire à des relations vues comme problématiques.
 
 print(p_clean)
+# Sauvegarde — équivalent Python : plt.savefig("fichier.png", dpi=300)
+ggsave("C:/Sorbonne/Méthodes algorithmiques S2/mgtow-reddit-analyse/outputs/fig_contexte_lexical.png",
+       p_clean, width = 12, height = 6, dpi = 300)
 
 
 # ============================================================
@@ -687,6 +690,9 @@ p_2019_semaine <- ggplot(sentiment_2019_semaine, aes(x = semaine, y = score_moye
 # Visualisation du graphique.
 
 print(p_2019_semaine)
+# Sauvegarde — équivalent Python : plt.savefig("fichier.png", dpi=300)
+ggsave("C:/Sorbonne/Méthodes algorithmiques S2/mgtow-reddit-analyse/outputs/fig_sentiment_hebdomadaire.png",
+       p_2019_semaine, width = 12, height = 6, dpi = 300)
 
 
 #Liste des mots à exclure de l'analyse lexicale.
@@ -782,6 +788,9 @@ p_clean_sans_repet <- top_mots_clean_sans_repet %>%
 # Affichage du graphique.
 
 print(p_clean_sans_repet)
+# Sauvegarde — équivalent Python : plt.savefig("fichier.png", dpi=300)
+ggsave("C:/Sorbonne/Méthodes algorithmiques S2/mgtow-reddit-analyse/outputs/fig_contexte_lexical_sans_repet.png",
+       p_clean_sans_repet, width = 12, height = 6, dpi = 300)
 
 
 
@@ -850,6 +859,9 @@ p_longueur <- ggplot(
 # Affichage du graphique.
 
 print(p_longueur)
+# Sauvegarde — équivalent Python : plt.savefig("fichier.png", dpi=300)
+ggsave("C:/Sorbonne/Méthodes algorithmiques S2/mgtow-reddit-analyse/outputs/fig_longueur_sentiment.png",
+       p_longueur, width = 12, height = 6, dpi = 300)
 
 
 
@@ -927,6 +939,9 @@ p_longueur_filtre <- ggplot(
 
 # Affichage du graphique.
 print(p_longueur_filtre)
+# Sauvegarde — équivalent Python : plt.savefig("fichier.png", dpi=300)
+ggsave("C:/Sorbonne/Méthodes algorithmiques S2/mgtow-reddit-analyse/outputs/fig_longueur_sentiment_filtre.png",
+       p_longueur_filtre, width = 12, height = 6, dpi = 300)
 
 
 
@@ -981,6 +996,9 @@ p_longueur_loess <- ggplot(
 
 # Affichage du graphique.
 print(p_longueur_loess)
+# Sauvegarde — équivalent Python : plt.savefig("fichier.png", dpi=300)
+ggsave("C:/Sorbonne/Méthodes algorithmiques S2/mgtow-reddit-analyse/outputs/fig_longueur_sentiment_loess.png",
+       p_longueur_loess, width = 12, height = 6, dpi = 300)
 
 
 # ================================

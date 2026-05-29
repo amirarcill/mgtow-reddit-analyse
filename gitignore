@@ -4,17 +4,16 @@
 .Rproj.user/
 *.Rproj
 
-# Données sensibles — NE PAS versionner
-sampleReddit.csv
-mgtow_corpus.csv
+# Données — ne pas versionner
 *.csv
 
-# Outputs (graphiques) — optionnel : retirer ces lignes si tu veux les versionner
-# outputs/
-
-# Fichiers système
-.DS_Store
+# Fichiers système Windows — NE PAS versionner
+desktop.ini
 Thumbs.db
+$RECYCLE.BIN/
+
+# Fichiers système macOS
+.DS_Store
 
 # Fichiers temporaires
 *.tmp
